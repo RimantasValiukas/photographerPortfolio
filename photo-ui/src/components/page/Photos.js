@@ -38,7 +38,7 @@ const Photos = () => {
                 <CircularProgress/>
             ) : (
                 <>
-                    <Container sx={{py: 8}} maxWidth="lg">
+                    <Container maxWidth="lg">
                         {albums.map((album, albumIndex) => (
                             <Grid container sx={{justifyContent: 'center', alignItems: 'center'}} key={albumIndex}>
                                 <Grid item xs={12} sm={8}>
@@ -46,7 +46,7 @@ const Photos = () => {
                                         variant="subtitle1"
                                         gutterBottom
                                         textAlign="center"
-                                        sx={{mt: '50px', mb: '30px', fontFamily: 'cursive', fontSize: '1.8em'}}
+                                        sx={{mt: '20px', mb: '20px', fontFamily: 'cursive', fontSize: '1.8em'}}
                                     >
                                         {album.name}
                                     </Typography>

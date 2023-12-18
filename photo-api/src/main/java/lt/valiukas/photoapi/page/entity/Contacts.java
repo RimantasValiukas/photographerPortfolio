@@ -17,6 +17,7 @@ import java.util.UUID;
 public class Contacts {
     @Id
     @GeneratedValue
+    @Column
     private UUID id;
     @Column
     private String mainTitle;

@@ -19,6 +19,7 @@ import java.util.UUID;
 public class Album {
     @Id
     @GeneratedValue
+    @Column
     private UUID albumId;
     @Column
     private String name;

@@ -19,7 +19,7 @@ import java.util.UUID;
 public class Home {
     @Id
     @GeneratedValue
-    @Column(columnDefinition = "uuid", updatable = false)
+    @Column
     private UUID id;
     @Column
     private String photoUrl;

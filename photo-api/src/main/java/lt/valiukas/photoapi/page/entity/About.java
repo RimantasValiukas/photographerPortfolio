@@ -19,6 +19,7 @@ import java.util.UUID;
 public class About {
     @Id
     @GeneratedValue
+    @Column
     private UUID id;
     @Column
     private String photoUrl;

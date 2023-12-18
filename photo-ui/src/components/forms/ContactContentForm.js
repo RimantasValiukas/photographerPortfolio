@@ -6,12 +6,31 @@ import FormInputs from "./FormInputs";
 import Button from "@mui/material/Button";
 import * as Yup from "yup";
 import {updateContactsContent} from "../../api/contentApi";
+import {useEffect, useState} from "react";
 
 const ContactContentForm = () => {
 
     const location = useLocation();
     const navigation = useNavigate();
-    const contactContent = location.state;
+    const contacts = location.state;
+    const [contactsContent, setContactsContent] = useState({
+        mainTitle: '',
+        contactsTitle: '',
+        phoneNumber: '',
+        email: '',
+        facebookUrl: '',
+        instagramUrl: '',
+        writeEmailTitle: '',
+        photos: []
+    });
+
+    // useEffect(() => {
+    //     console.log(contacts);
+    //     if (contacts.id) {
+    //         setContactsContent(contacts);
+    //     }
+    //
+    // })
 
     const contactContentValidationScheme = Yup.object().shape({
         mainTitle: Yup.string().required("Laukas privalomas").max(255, "Per ilgas pavadinimas"),
@@ -25,7 +44,7 @@ const ContactContentForm = () => {
     const updateContent = (values, helper) => {
         const updatedContactsContent = {
             ...values,
-            id: contactContent.id
+            id: contacts.id
         }
 
         updateContactsContent(updatedContactsContent)
@@ -35,7 +54,7 @@ const ContactContentForm = () => {
     }
 
     return (
-        <Formik initialValues={contactContent}
+        <Formik initialValues={contacts.id ? contacts : contactsContent}
                 onSubmit={updateContent}
                 validationSchema={contactContentValidationScheme}>
             {
@@ -73,13 +92,32 @@ const ContactContentForm = () => {
                                     {(arrayHelpers) => (
                                         <>
                                             {props.values.photos.map((photo, index) => (
-                                                <FormInputs
-                                                    key={index}
-                                                    name={`photos[${index}]`}
-                                                    label="Photo URL"
-                                                    error={props.touched.photos && !!props.errors.photos?.[index]}
-                                                />
+                                                <div key={index}>
+                                                    <FormInputs
+                                                        name={`photos[${index}]`}
+                                                        label="Photo URL"
+                                                        error={props.touched.photos && !!props.errors.photos?.[index]}
+                                                    />
+                                                    <Button
+                                                        type="button"
+                                                        size="small"
+                                                        onClick={() => arrayHelpers.remove(index)}
+                                                        color="warning"
+                                                    >
+                                                        IŠTRINTI
+                                                    </Button>
+                                                </div>
                                             ))}
+                                            <Typography sx={{textAlign: 'left', mt: 2}}>
+                                                <Button
+                                                    type="button"
+                                                    variant="outlined"
+                                                    onClick={() => arrayHelpers.push('')}
+                                                    sx={{color: '#AAD2B5', borderColor: '#AAD2B5'}}
+                                                >
+                                                    Pridėti nuotrauką
+                                                </Button>
+                                            </Typography>
                                         </>
                                     )}
                                 </FieldArray>
