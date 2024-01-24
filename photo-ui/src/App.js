@@ -14,8 +14,8 @@ const sections = [
 function App() {
     return (
         <Experimental_CssVarsProvider>
-            <BrowserRouter>
-                <Header sections={sections} title=""/>
+            <BrowserRouter basename={"/"}>
+                <Header sections={sections}/>
                 <Content/>
                 <Footer/>
             </BrowserRouter>

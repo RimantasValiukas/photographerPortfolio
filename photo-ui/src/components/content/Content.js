@@ -1,4 +1,4 @@
-import {Container} from "@mui/material";
+import {Container, Switch} from "@mui/material";
 import {Route, Routes} from "react-router-dom";
 import Home from "../page/Home";
 import About from "../page/About";
@@ -20,19 +20,19 @@ const Content = () => {
                        px: 2,
                        width: '100%',
                        boxSizing: 'border-box',
-                       justifyContent: 'center', // Center content horizontally
-                       alignItems: 'center' // Center content vertically
+                       justifyContent: 'center',
+                       alignItems: 'center'
                    }}>
             <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/about" element={<About/>}/>
-                <Route path="/contacts" element={<Contacts/>}/>
-                <Route path="/photos" element={<Photos/>}/>
-                <Route path="/home/update" element={<HomeContentForm/>}/>
-                <Route path="/about/update" element={<AboutContentForm/>}/>
-                <Route path="/album/create" element={<Album/>}/>
-                <Route path="/album/:albumId/update" element={<Album/>}/>
-                <Route path="/contact/update" element={<ContactContentForm/>}/>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/about" element={<About/>}/>
+                    <Route path="/contacts" element={<Contacts/>}/>
+                    <Route path="/photos" element={<Photos/>}/>
+                    <Route path="/home/update" element={<HomeContentForm/>}/>
+                    <Route path="/about/update" element={<AboutContentForm/>}/>
+                    <Route path="/album/create" element={<Album/>}/>
+                    <Route path="/album/:albumId/update" element={<Album/>}/>
+                    <Route path="/contact/update" element={<ContactContentForm/>}/>
             </Routes>
         </Container>
     );

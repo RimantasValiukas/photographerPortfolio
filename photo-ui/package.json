@@ -1,5 +1,6 @@
 {
   "name": "photo-ui",
+  "homepage": "https://valiukas.000webhostapp.com/",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:8080",

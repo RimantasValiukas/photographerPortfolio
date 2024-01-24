@@ -30,62 +30,62 @@ public class Controller {
         this.contactsService = contactsService;
     }
 
-    @GetMapping(value = "/home", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/api/home", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Home> getHomeContent() {
         return homeService.getAllHomeContent();
     }
 
-    @PutMapping(value = "/home", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/api/home", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void saveHomeContent(@RequestBody Home homeContent) {
         homeService.saveHomeContent(homeContent);
     }
 
-    @GetMapping(value = "/about", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "api/about", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<About> getAboutContent() {
         return aboutService.getAllAboutContent();
     }
 
-    @PutMapping(value = "/about", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "api/about", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void saveAboutContent(@RequestBody About about) {
         aboutService.saveAboutContent(about);
     }
 
-    @PostMapping(value = "/album", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "api/album", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public void createAlbum(@RequestBody Album album) {
         albumService.createAlbum(album);
     }
 
-    @GetMapping(value = "/albums")
+    @GetMapping(value = "api/albums")
     public List<Album> getAllAlbums() {
         return albumService.getAllAlbums();
     }
 
-    @GetMapping(value = "/albums/{albumId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "api/albums/{albumId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Album getAlbum(@PathVariable UUID albumId) {
         return albumService.getAlbum(albumId);
     }
 
-    @PutMapping(value = "/albums", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "api/albums", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void updateAlbum(@RequestBody Album album) {
         albumService.createAlbum(album);
     }
 
-    @DeleteMapping(value = "/albums/{albumId}")
+    @DeleteMapping(value = "api/albums/{albumId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteAlbum(@PathVariable UUID albumId) {
         albumService.deleteAlbum(albumId);
     }
 
-    @GetMapping(value = "/contacts", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "api/contacts", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Contacts> getContacts() {
         return contactsService.getContacts();
     }
 
-    @PutMapping(value = "/contacts", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "api/contacts", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void saveContacts(@RequestBody Contacts contacts) {
         contactsService.saveContacts(contacts);

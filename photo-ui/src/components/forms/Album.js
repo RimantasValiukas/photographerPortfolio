@@ -57,7 +57,12 @@ const Album = () => {
     }
 
     const onUpdateAlbum = (values, helper) => {
-        updateAlbum(values)
+        const updatedAlbum = {
+            ...values,
+            id: albumId
+        }
+
+        updateAlbum(updatedAlbum)
             .then(() => navigation('/photos'))
             .catch((error) => console.log('error', error))
             .finally(() => helper.setSubmitting(false))
